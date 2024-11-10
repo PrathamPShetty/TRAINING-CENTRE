@@ -25,15 +25,9 @@ class DefaultFirebaseOptions {
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for macos - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return macos;
       case TargetPlatform.windows:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for windows - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return windows;
       case TargetPlatform.linux:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for linux - '
@@ -47,29 +41,49 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyCsnsCkm0JRWW1GJcTcCppTqO1Fa8Yhhds',
-    appId: '1:590052843427:web:74440048d6afc415a34416',
-    messagingSenderId: '590052843427',
-    projectId: 'manomay-19162',
-    authDomain: 'manomay-19162.firebaseapp.com',
-    storageBucket: 'manomay-19162.appspot.com',
-    measurementId: 'G-ZYE34CX1B3',
+    apiKey: 'AIzaSyCnTw9tydZXYRJ99pzzaQqgKg98p00zVR4',
+    appId: '1:760164097376:web:4bf1ab21a05a6fde329205',
+    messagingSenderId: '760164097376',
+    projectId: 'srinivas-temple-website',
+    authDomain: 'srinivas-temple-website.firebaseapp.com',
+    storageBucket: 'srinivas-temple-website.firebasestorage.app',
+    measurementId: 'G-S8PGG5F3RJ',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCLD1RSbXn3iG0HhlITDwcY3PsgAQlnnS4',
-    appId: '1:590052843427:android:d857877017377bada34416',
-    messagingSenderId: '590052843427',
-    projectId: 'manomay-19162',
-    storageBucket: 'manomay-19162.appspot.com',
+    apiKey: 'AIzaSyB22P82btKJPWYtCfDLjlL1kc_QziEfEjA',
+    appId: '1:760164097376:android:34117e10a7b002dc329205',
+    messagingSenderId: '760164097376',
+    projectId: 'srinivas-temple-website',
+    storageBucket: 'srinivas-temple-website.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyBvO_iDDYNbzqb7OsNEIBXxJvvoYdG8vNo',
-    appId: '1:590052843427:ios:fa5a3e61951d8f58a34416',
-    messagingSenderId: '590052843427',
-    projectId: 'manomay-19162',
-    storageBucket: 'manomay-19162.appspot.com',
+    apiKey: 'AIzaSyBDks0Lr0MkpVcBRaYqyyX7wCsYrV1JAik',
+    appId: '1:760164097376:ios:a49336f33dbf5a59329205',
+    messagingSenderId: '760164097376',
+    projectId: 'srinivas-temple-website',
+    storageBucket: 'srinivas-temple-website.firebasestorage.app',
     iosBundleId: 'com.example.staffClientSide',
   );
+
+  static const FirebaseOptions macos = FirebaseOptions(
+    apiKey: 'AIzaSyBDks0Lr0MkpVcBRaYqyyX7wCsYrV1JAik',
+    appId: '1:760164097376:ios:a49336f33dbf5a59329205',
+    messagingSenderId: '760164097376',
+    projectId: 'srinivas-temple-website',
+    storageBucket: 'srinivas-temple-website.firebasestorage.app',
+    iosBundleId: 'com.example.staffClientSide',
+  );
+
+  static const FirebaseOptions windows = FirebaseOptions(
+    apiKey: 'AIzaSyCnTw9tydZXYRJ99pzzaQqgKg98p00zVR4',
+    appId: '1:760164097376:web:918d7d160b77548d329205',
+    messagingSenderId: '760164097376',
+    projectId: 'srinivas-temple-website',
+    authDomain: 'srinivas-temple-website.firebaseapp.com',
+    storageBucket: 'srinivas-temple-website.firebasestorage.app',
+    measurementId: 'G-E3KHEHFLBF',
+  );
+
 }

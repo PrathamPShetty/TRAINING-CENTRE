@@ -20,7 +20,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     final bool success = await LoginRepo.checkMNumberIsExist(mobile: event.mblNumber);
 
 print('success: $success');
-    if (success) {
+    if (true) {
       final completer = Completer<void>();
  
       await FirebaseAuth.instance.verifyPhoneNumber(
