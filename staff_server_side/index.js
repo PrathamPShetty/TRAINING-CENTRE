@@ -30,11 +30,11 @@ app.use(
   "/uploads/user_images",
   express.static(path.join(__dirname, "uploads/user_images"))
 );
+connectDB()
 
 PORT = process.env.PORT;
 IP = process.env.IP;
 
-connectDB()
   // .then(() => {
   //   app.listen(PORT, IP, () => {
   //     console.log(`Server connected for ${IP}:${PORT}`);
