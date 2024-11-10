@@ -9,7 +9,6 @@ const userRoute = require("./router/usersRouter");
 const adminRouter = require("./router/adminRouter");
 const managerRoute = require("./router/managerRouter");
 
-connectDB()
 dotenv.config();
 
 const app = express();
@@ -35,11 +34,12 @@ connectDB()
 PORT = process.env.PORT;
 IP = process.env.IP;
 
-  // .then(() => {
-  //   app.listen(PORT, IP, () => {
-  //     console.log(`Server connected for ${IP}:${PORT}`);
-  //   });
-  // })
-  // .catch((err) => {
-  //   console.log("MONGO db connection !!!", err);
-  // });
+connectDB()
+  .then(() => {
+    app.listen(PORT, IP, () => {
+      console.log(`Server connected for ${IP}:${PORT}`);
+    });
+  })
+  .catch((err) => {
+    console.log("MONGO db connection !!!", err);
+  });
