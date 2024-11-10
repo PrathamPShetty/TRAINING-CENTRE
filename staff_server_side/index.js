@@ -9,7 +9,7 @@ const userRoute = require("./router/usersRouter");
 const adminRouter = require("./router/adminRouter");
 const managerRoute = require("./router/managerRouter");
 
-
+connectDB()
 dotenv.config();
 
 const app = express();
