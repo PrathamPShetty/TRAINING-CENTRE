@@ -10,7 +10,7 @@ class HomeRepo {
 
     try {
       final response = await dio.post(
-        '${Server.api}dashboardMenu',
+        '${Server.api}dashboardMenu/',
         data: {'user_id': SharedPrefs().id},
       );
 

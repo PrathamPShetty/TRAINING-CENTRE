@@ -34,14 +34,15 @@ connectDB()
 PORT = process.env.PORT;
 IP = process.env.IP;
 
-connectDB()
 
 module.exports = app;
-  // .then(() => {
-  //   app.listen(PORT, IP, () => {
-  //     console.log(`Server connected for ${IP}:${PORT}`);
-  //   });
-  // })
-  // .catch((err) => {
-  //   console.log("MONGO db connection !!!", err);
-  // });
+
+connectDB()
+  .then(() => {
+    app.listen(PORT, IP, () => {
+      console.log(`Server connected for ${IP}:${PORT}`);
+    });
+  })
+  .catch((err) => {
+    console.log("MONGO db connection !!!", err);
+  });

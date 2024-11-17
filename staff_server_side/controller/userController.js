@@ -183,6 +183,9 @@ async function dashboardMenu(req, res) {
   try {
     const { user_id } = req.body;
 
+
+    console.log(user_id)
+
     // Fetch user information
     const getUserInfo = await LoginModel.findById(user_id);
 
@@ -219,6 +222,7 @@ async function dashboardMenu(req, res) {
 
     // Respond with the filtered menu
     res.status(200).json(filteredMenu);
+    console.log('success')
   } catch (error) {
     return res.status(500).json({ msg: "Internal Server Error" });
   }

@@ -22,6 +22,8 @@ import 'package:staff_client_side/features/tutionCenter/screens/tutioncenter.dar
 import 'package:staff_client_side/firebase_options.dart';
 import 'package:staff_client_side/routes/routes.dart';
 
+import 'package:staff_client_side/features/auth/login/repo/loginRepo.dart';
+
 extension StringExtension on String {
   String capitalizeFirstLetter() {
     if (isEmpty) {
@@ -38,6 +40,12 @@ void main() async {
   );
   final savedThemeMode = await AdaptiveTheme.getThemeMode();
   await SharedPrefs().init();
+
+  final number = '9482169917';
+  final bool success = await LoginRepo.checkMNumberIsExist(mobile: number);
+
+
+
   LicenseRegistry.addLicense(() async* {
     final license = await rootBundle.loadString('google_fonts/OFL.txt');
     yield LicenseEntryWithLineBreaks(['google_fonts'], license);
@@ -47,7 +55,7 @@ void main() async {
       ? false
       : prefs.getBool('isLoggedIn');
   runApp(MyApp(
-    isLoggedIn: isLoggedIn!,
+    isLoggedIn: true,
     savedThemeMode: savedThemeMode,
   ));
 }
@@ -63,8 +71,10 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    String initialRoute = isLoggedIn ? '/bottom' : '/login';
-    // String initialRoute = isLoggedIn ?  '/login' : '/bottom';
+
+
+   String initialRoute = isLoggedIn ? '/bottom' : '/login';
+    //  String initialRoute = isLoggedIn ?  '/login' : '/bottom';
     return OverlaySupport(
       child: AdaptiveTheme(
         light: ThemeData(

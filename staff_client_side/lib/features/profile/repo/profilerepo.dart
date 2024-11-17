@@ -19,7 +19,7 @@ class ProfileRepo {
     required workExperience,
     required govermentID,
   }) async {
-    var url = '${Server.api}userInfoUpdateWithoutDoc';
+    var url = '${Server.api}userInfoUpdateWithoutDoc/';
     Dio dio = Dio();
     try {
       final response = await dio.post(
@@ -38,7 +38,7 @@ class ProfileRepo {
         }),
       );
 
-      print(response.data);
+      print('hi: $response.data');
 
       if (response.statusCode == 200) {
         final SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -83,7 +83,7 @@ class ProfileRepo {
     required workExperience,
     required govermentID,
   }) async {
-    final url = '${Server.api}userInfoUpdateWithDoc';
+    final url = '${Server.api}userInfoUpdateWithDoc/';
     Dio dio = Dio();
     try {
       var formData = FormData.fromMap({

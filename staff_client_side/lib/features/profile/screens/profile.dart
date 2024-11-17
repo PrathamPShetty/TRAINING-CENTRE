@@ -144,28 +144,23 @@ class _ProfilePageState extends State<ProfilePage> {
     String initialtodateString = '${SharedPrefs().dob}';
     DateFormat toformat = DateFormat('dd-MM-yyyy');
 
-    // Declare formattedDate outside the try-catch block
+// Declare formattedDate as String
     String formattedDate = '';
 
     try {
-      DateTime initialtodate = toformat.parse(initialtodateString);
-      // print(initialtodate);
+      DateTime initialtodate = toformat.parse(initialtodateString); // Parse the original date string
 
-      String originalDate = SharedPrefs().dob;
-      List<String> parts = originalDate.split(' ');
-      String datePart = parts[0];
-      List<String> dateParts = datePart.split('-');
-      formattedDate = SharedPrefs().dob != ''
-          ? "${dateParts[2]}-${dateParts[1]}-${dateParts[0]}"
-          : '';
+      // Reformat the parsed DateTime into the desired string format (e.g., "yyyy-MM-dd")
+      formattedDate = DateFormat('yyyy-MM-dd').format(initialtodate);
+
+      print('formattedDate: $formattedDate'); // You can log it to see the result
 
       // Continue with the rest of your code...
     } catch (e) {
-      // print('Error parsing date: $e');
-      // You can set a default date or take appropriate action based on your use case
-      // For example:
-      // DateTime initialtodate = DateTime.now();
-      // formattedDate = '';
+      // Handle error if the date is invalid
+      print('Error parsing date: $e');
+      // You can set a default date or take appropriate action
+      formattedDate = ''; // Default to empty or any fallback value
     }
 
     // name.text = SharedPrefs().name != '' ? SharedPrefs().name : '';
@@ -970,164 +965,90 @@ class _ProfilePageState extends State<ProfilePage> {
                                                   minLines: 1,
                                                 ),
                                               ),
-                                              // Row(
-                                              //   children: [
-                                              //     Expanded(
-                                              //       child: Padding(
-                                              //         padding: const EdgeInsets
-                                              //             .fromLTRB(
-                                              //             20, 0, 20, 15),
-                                              //         child: DateTimeFormField(
-                                              //           initialValue:
-                                              //               formattedDate
-                                              //                       .isNotEmpty
-                                              //                   ? format.parse(
-                                              //                       formattedDate)
-                                              //                   : null,
-                                              //
-                                              //           lastDate: DateTime(
-                                              //               DateTime.now()
-                                              //                       .year -
-                                              //                   1,
-                                              //               12,
-                                              //               31),
-                                              //           dateFormat: format,
-                                              //           dateTextStyle:
-                                              //               const TextStyle(
-                                              //                   fontWeight:
-                                              //                       FontWeight
-                                              //                           .w500),
-                                              //           decoration:
-                                              //               InputDecoration(
-                                              //                   filled: true,
-                                              //                   fillColor: AdaptiveTheme.of(
-                                              //                               context)
-                                              //                           .mode
-                                              //                           .isDark
-                                              //                       ? const Color
-                                              //                           .fromARGB(255,
-                                              //                           56, 56, 56)
-                                              //                       : Colors
-                                              //                           .white,
-                                              //                   hintText:
-                                              //                       "Update your DOB",
-                                              //                   label: Text(
-                                              //                     "DOB",
-                                              //                     style:
-                                              //                         GoogleFonts
-                                              //                             .lato(),
-                                              //                   ),
-                                              //                   hintStyle:
-                                              //                       GoogleFonts
-                                              //                           .lato(
-                                              //                     textStyle: const TextStyle(
-                                              //                         fontSize:
-                                              //                             14,
-                                              //                         fontWeight:
-                                              //                             FontWeight
-                                              //                                 .w400),
-                                              //                   ),
-                                              //                   prefixIcon:
-                                              //                       Icon(
-                                              //                     IconlyBroken
-                                              //                         .calendar,
-                                              //                     color: AdaptiveTheme.of(
-                                              //                                 context)
-                                              //                             .mode
-                                              //                             .isDark
-                                              //                         ? Colors
-                                              //                             .grey
-                                              //                         : MyColors
-                                              //                             .primaryColor,
-                                              //                     size: 28,
-                                              //                   ),
-                                              //                   enabledBorder:
-                                              //                       OutlineInputBorder(
-                                              //                     borderSide: const BorderSide(
-                                              //                         width: 1,
-                                              //                         color: Color.fromARGB(
-                                              //                             255,
-                                              //                             193,
-                                              //                             193,
-                                              //                             193)), //<-- SEE HERE
-                                              //                     borderRadius:
-                                              //                         BorderRadius
-                                              //                             .circular(
-                                              //                                 10.0),
-                                              //                   ),
-                                              //                   focusedBorder:
-                                              //                       OutlineInputBorder(
-                                              //                     //<-- SEE HERE
-                                              //                     borderSide: const BorderSide(
-                                              //                         width: 1,
-                                              //                         color: Color.fromARGB(
-                                              //                             255,
-                                              //                             98,
-                                              //                             216,
-                                              //                             127)),
-                                              //                     borderRadius:
-                                              //                         BorderRadius
-                                              //                             .circular(
-                                              //                                 10.0),
-                                              //                   ),
-                                              //                   errorBorder:
-                                              //                       OutlineInputBorder(
-                                              //                     //<-- SEE HERE
-                                              //                     borderSide:
-                                              //                         const BorderSide(
-                                              //                             width:
-                                              //                                 1,
-                                              //                             color:
-                                              //                                 Colors.red),
-                                              //                     borderRadius:
-                                              //                         BorderRadius
-                                              //                             .circular(
-                                              //                                 10.0),
-                                              //                   ),
-                                              //                   focusedErrorBorder:
-                                              //                       OutlineInputBorder(
-                                              //                     //<-- SEE HERE
-                                              //                     borderSide:
-                                              //                         const BorderSide(
-                                              //                             width:
-                                              //                                 1,
-                                              //                             color:
-                                              //                                 Colors.red),
-                                              //                     borderRadius:
-                                              //                         BorderRadius
-                                              //                             .circular(
-                                              //                                 10.0),
-                                              //                   ),
-                                              //                   errorStyle:
-                                              //                       const TextStyle(
-                                              //                           color: Colors
-                                              //                               .red)),
-                                              //           mode:
-                                              //               DateTimeFieldPickerMode
-                                              //                   .date,
-                                              //           autovalidateMode:
-                                              //               AutovalidateMode
-                                              //                   .disabled,
-                                              //           onDateSelected:
-                                              //               (DateTime value) {
-                                              //             userDob =
-                                              //                 value.toString();
-                                              //             setState(() {
-                                              //               isDob = value
-                                              //                   .toString();
-                                              //             });
-                                              //           },
-                                              //           // ignore: body_might_complete_normally_nullable
-                                              //           // validator: (value) {
-                                              //           //   if (value == null) {
-                                              //           //     return 'Please enter valid DOB';
-                                              //           //   }
-                                              //           // },
-                                              //         ),
-                                              //       ),
-                                              //     )
-                                              //   ],
-                                              // ),
+                                              Row(
+                                                children: [
+                                                  Expanded(
+                                                    child: Padding(
+                                                      padding: const EdgeInsets
+                                                          .fromLTRB(
+                                                          20, 0, 20, 15),
+                                                      child:DateTimeFormField(
+                                                        decoration: InputDecoration(
+                                                          filled: true,
+                                                          fillColor: AdaptiveTheme.of(context).mode.isDark
+                                                              ? const Color.fromARGB(255, 56, 56, 56)
+                                                              : Colors.white,
+                                                          labelText: 'Enter Date',
+                                                          hintText: "Update your DOB",
+                                                          labelStyle: GoogleFonts.lato(
+                                                            textStyle: const TextStyle(
+                                                              fontSize: 14,
+                                                              fontWeight: FontWeight.w400,
+                                                            ),
+                                                          ),
+                                                          hintStyle: GoogleFonts.lato(
+                                                            textStyle: const TextStyle(
+                                                              fontSize: 14,
+                                                              fontWeight: FontWeight.w400,
+                                                            ),
+                                                          ),
+                                                          prefixIcon: Icon(
+                                                            IconlyBroken.calendar,
+                                                            color: AdaptiveTheme.of(context).mode.isDark
+                                                                ? Colors.grey
+                                                                : MyColors.primaryColor,
+                                                            size: 28,
+                                                          ),
+                                                          enabledBorder: OutlineInputBorder(
+                                                            borderSide: const BorderSide(
+                                                              width: 1,
+                                                              color: Color.fromARGB(255, 193, 193, 193),
+                                                            ),
+                                                            borderRadius: BorderRadius.circular(10.0),
+                                                          ),
+                                                          focusedBorder: OutlineInputBorder(
+                                                            borderSide: const BorderSide(
+                                                              width: 1,
+                                                              color: Color.fromARGB(255, 98, 216, 127),
+                                                            ),
+                                                            borderRadius: BorderRadius.circular(10.0),
+                                                          ),
+                                                          errorBorder: OutlineInputBorder(
+                                                            borderSide: const BorderSide(
+                                                              width: 1,
+                                                              color: Colors.red,
+                                                            ),
+                                                            borderRadius: BorderRadius.circular(10.0),
+                                                          ),
+                                                          focusedErrorBorder: OutlineInputBorder(
+                                                            borderSide: const BorderSide(
+                                                              width: 1,
+                                                              color: Colors.red,
+                                                            ),
+                                                            borderRadius: BorderRadius.circular(10.0),
+                                                          ),
+                                                          errorStyle: const TextStyle(color: Colors.red),
+                                                        ),
+                                                        firstDate: DateTime.now().add(const Duration(days: 10)),
+                                                        lastDate: DateTime.now().add(const Duration(days: 40)),
+                                                        initialPickerDateTime: DateTime.now().add(const Duration(days: 20)),
+                                                        initialValue: formattedDate.isNotEmpty
+                                                            ? DateTime.parse(formattedDate).toLocal()
+                                                            : null,
+                                                        onChanged: (DateTime? value) {
+                                                          if (value != null) {
+                                                            // Ensure only the date portion is considered
+                                                            final onlyDate = DateTime(value.year, value.month, value.day);
+                                                            formattedDate = DateFormat('yyyy-MM-dd').format(onlyDate);
+                                                          }
+                                                        },
+                                                      ),
+
+
+                                                    ),
+                                                  )
+                                                ],
+                                              ),
                                               Padding(
                                                 padding:
                                                     const EdgeInsets.fromLTRB(

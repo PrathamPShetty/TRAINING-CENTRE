@@ -20,7 +20,7 @@ class OtpBloc extends Bloc<OtpEvent, OtpState> {
   FutureOr<void> otpButtonOnPressedEvent(
       OtpButtonOnPressedEvent event, Emitter<OtpState> emit) async {
     emit(OtpLoadState());
-  
+
     try {
       PhoneAuthCredential credential = PhoneAuthProvider.credential(
           verificationId: OtpPage.verifyId!, smsCode: OtpPage.code!);

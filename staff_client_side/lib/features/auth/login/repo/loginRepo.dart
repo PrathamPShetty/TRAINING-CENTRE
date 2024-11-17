@@ -10,7 +10,7 @@ class LoginRepo {
   static Future<bool> checkMNumberIsExist({
     required String mobile,
   }) async {
-    var url = '${Server.api}checkNumberIsExist';
+    var url = 'https://training-centre.vercel.app/api/checkNumberIsExist/';
 
     try {
       // Make the POST request
